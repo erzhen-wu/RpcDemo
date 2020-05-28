@@ -6,10 +6,13 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
+/**
+ * 动态代理
+ */
 public class SocketClientProxy {
     private socketClient sock = new socketClient();
 
-    public  <T> T getProxy(Class<T> clazz){
+    public <T> T getProxy(Class<T> clazz) {
         return (T) Proxy.newProxyInstance(clazz.getClassLoader(),
                 new Class<?>[]{clazz}, new InvocationHandler() {
                     @Override
@@ -19,7 +22,7 @@ public class SocketClientProxy {
                         request.setMethodName(method.getName());
                         request.setParamTypes(method.getParameterTypes());
                         request.setParams(args);
-                        return  sock.invoke(request,"127.0.0.1",12000);
+                        return sock.invoke(request, "127.0.0.1", 12000);
                     }
                 });
     }
