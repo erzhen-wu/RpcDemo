@@ -14,6 +14,7 @@ import java.util.Map;
 
 public class ServerService implements Runnable{
     private Socket sockClient;
+    //私有变量serviceRegistry，该变量用于服务注册，即这个里面存放了我们向外存放的接口，key是接口名或ID，用于查找接口。
     private Map<String, Class> serviceRegistry = new HashMap<String, Class>();
     private Response response = new Response();
 

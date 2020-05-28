@@ -13,26 +13,25 @@ import java.io.IOException;
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-{
+public class AppTest {
     /**
      * Rigorous Test :-)
      */
     @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
+    public void shouldAnswerWithTrue() {
+        assertTrue(true);
     }
 
-    public static void main(String [] arg){
-        new Thread( () ->  {
+    public static void main(String[] arg) {
+        new Thread(() -> {
             try {
                 Server server = new Server(12000);
                 server.start();
-            } catch (IOException e){
+            } catch (IOException e) {
+                System.out.println("io异常");
                 System.out.println(e.getMessage());
             }
-        } ).start();
+        }).start();
 
         SocketClientProxy proxy = new SocketClientProxy();
         StudentService studentService = proxy.getProxy(StudentService.class);

@@ -10,6 +10,9 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 接收客户端请求
+ */
 public class Server {
     private ServerSocket serverSocket;
     private int servPort;
